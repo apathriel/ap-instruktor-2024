@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="myOnclickFunction()"> Onclick Button </button>
+    <button id="namedFunctionCallback"> Named Function Button </button>
+    <button class="arrowFunctionCallback"> Arrow Function Button </button>
+    <button class="anonymousFunctionCallback"> Anonymous Function Button </button>
+
+    <script>
+        function myOnclickFunction() {
+            console.log("Button has been clicked!");
+        }
+
+        document.querySelector("#namedFunctionCallback").addEventListener("click", myOnclickFunction)
+        document.querySelector(".arrowFunctionCallback").addEventListener("click", () => {console.log("Button has been clicked!")});
+        document.querySelector(".anonymousFunctionCallback").addEventListener("click", function (){
+            console.log("Button has been clicked!")
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="checkbox1" type="checkbox" value="checkbox">
+    <input id="checkbox2" type="checkbox" value="checkbox">
+    <input id="checkbox3" type="checkbox" value="checkbox">
+
+    <script>
+
+        let checkbox1 = document.getElementById('checkbox1');
+        let checkbox2 = document.getElementById('checkbox2');
+        let checkbox3 = document.getElementById('checkbox3');
+
+
+        function changeBodyColor(col) {
+            document.body.style.backgroundColor = col;
+        }
+
+        function controlFlow() {
+            if (checkbox1.checked && checkbox2.checked) {
+                changeBodyColor("yellow");
+            } else if (checkbox1.checked && checkbox3.checked) {
+                changeBodyColor("purple");
+            } else if (checkbox1.checked) {
+                changeBodyColor("red");
+            } else if (checkbox2.checked) {
+                changeBodyColor("green");
+            } else if (checkbox3.checked) {
+                changeBodyColor("blue");
+            } else {
+                changeBodyColor("white");
+            }
+        }
+
+        checkbox1.addEventListener("change", controlFlow)
+        checkbox2.addEventListener("change", controlFlow)
+        checkbox3.addEventListener("change", controlFlow)
+    </script>
+</body>
+</html>
