@@ -11,30 +11,30 @@
 </body>
 
 <script>
-    /*  
-     //Exercise A
-     //Create a function 
-     function converter(eur) {
-         return eur * 7.45
-     }
-     //Using the function 
-     console.log("100 euros to dkk is " + converter(100))
-     console.log("We expect the result to be ~745 dkk")
- 
- 
-     //Exercise A refactored
- 
-     //Create a function
-     function convertToDkk(eur) {
-         let exchangeRateToDkk = 7.45
-         return eur * exchangeRateToDkk
-     }
-     //Using the function
-     console.log("100 euros to dkk is " + convertToDkk(100))
-     console.log("We expect the result to be ~745 dkk") */
+
+    //Exercise A
+    //Create a function 
+    function converter(eur) {
+        return eur * 7.45
+    }
+    //Using the function 
+    console.log("100 euros to dkk is " + converter(100))
+    console.log("We expect the result to be ~745 dkk")
 
 
-    /* //Exercise C-D
+    //Exercise A refactored
+
+    //Create a function
+    function convertToDkk(eur) {
+        let exchangeRateToDkk = 7.45
+        return eur * exchangeRateToDkk
+    }
+    //Using the function
+    console.log("100 euros to dkk is " + convertToDkk(100))
+    console.log("We expect the result to be ~745 dkk")
+
+
+    //Exercise C-D
     function isEvenNumber(number) {
         //return Number.isInteger(number / 2)
         return number % 2 == 0
@@ -53,10 +53,10 @@
     console.log("3 is odd, right? " + isOddNumber(3))
     console.log("315872385612385 is odd, right? " + isOddNumber(315872385612385))
     console.log(Number.isInteger(3.5))
- */
+
 
     //Exercise C-D refactored
-    /* function isEven(number, divisor) {
+    function isEven(number, divisor) {
         // return Number.isInteger(number / 2)
         return isDivisible(number, 2)
     }
@@ -79,76 +79,75 @@
     console.log("2 is not odd, right? " + isOdd(2))
     console.log("4 is not odd, right? " + isOdd(4))
     console.log("3 is odd, right? " + isOdd(3))
-    console.log("315872385612385 is odd, right? " + isOdd(315872385612385))  */
+    console.log("315872385612385 is odd, right? " + isOdd(315872385612385))
 
 
-    /*    //Exercise E
-       function abbreviate(firstName, middleName, lastName) {
-           if (firstName == "" || lastName == "") {
-               return "MISSING INFORMATION"
-           }
-           // if (middleName.length > 0) {
-           if (middleName != "") {
-               return firstName[0] + " " + middleName[0] + ". " + lastName[0]
-           } else {
-               //The Code when we did not receive a middle name
-               return firstName[0] + lastName[0]
-           }
-   
-       }
-       console.log("Abbreviate Germán Ariel Leiva: " + abbreviate("Germán", "Ariel", "Leiva"))
-       console.log("Abbreviate Max Power: " + abbreviate("Max", "", "Power"))
-       console.log("Abbreviate Madonna: " + abbreviate("Madonna", "", "")) */
+    //Exercise E
+    function abbreviate(firstName, middleName, lastName) {
+        if (firstName == "" || lastName == "") {
+            return "MISSING INFORMATION"
+        }
 
-
-    //Exercise F
-
-    /* function abbreviateString(str) {
-
-        const splitString = str.split(" ")
-
-        console.log(splitString)
-
-        if (splitString.length < 2) {
-
-            console.log("MISSING INFORMATION")
-
-        } else if (splitString.length == 2) {
-
-            const getFirst = splitString.map(word => word[0])
-
-            const joinString = getFirst.join("")
-
-            return joinString
-
+        if (middleName != "") {
+            return firstName[0] + " " + middleName[0] + ". " + lastName[0]
         } else {
-            const getFirst = splitString.map(word => word[0])
-
-            const joinString = getFirst.join(" ")
-
-            return joinString
+            //The Code when we did not receive a middle name
+            return firstName[0] + lastName[0]
         }
 
     }
+    console.log("Abbreviate Germán Ariel Leiva: " + abbreviate("Germán", "Ariel", "Leiva"))
+    console.log("Abbreviate Max Power: " + abbreviate("Max", "", "Power"))
+    console.log("Abbreviate Madonna: " + abbreviate("Madonna", "", ""))
 
-    console.log("Abbreviate Trine Rye Østergaard: " + abbreviateString("Trine Østergaard")) */
+    // Exercise F (this exercise calls the function 'abbreviate' from exercise E)
+
+    function abbreviateFRefactored(text) {
+        let firstName = ""
+        let middleName = ""
+        let lastName = ""
+
+        let components = text.split(" ")
+
+        if (components.length > 0) {
+            firstName = components[0]
+
+        } else {
+            return "MISSING INFORMATION"
+        }
+
+        if (components.length == 2) {
+            lastName = components[1]
+        }
+        if (components.length == 3) {
+            middleName = components[1]
+            lastName = components[2]
+        }
+
+        return abbreviate(firstName, middleName, lastName)
+    }
+
+    console.log("Abbreviate Germán Ariel Leiva: " + abbreviateFRefactored("Leiva"))
+    console.log("Abbreviate Max Power: " + abbreviateFRefactored("Max Power"))
+    console.log("Abbreviate Madonna: " + abbreviateFRefactored("Madonna"))
+
 
     //Exercise G
 
-        function factorialize(num) {
+    function factorialize(num) {
 
-            if (num < 0)
-                return -1;
-            else if (num == 0)
-                return 1;
-            else {
-                return (num * factorialize(num - 1));
-            }
+        if (num < 0)
+            return -1;
+        else if (num == 0)
+            return 1;
+        else {
+            return (num * factorialize(num - 1));
         }
-        
-        console.log(factorialize(5));
+    }
 
-    
+    console.log(factorialize(5));
+
+
 
 </script>
 
