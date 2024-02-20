@@ -1,0 +1,124 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+
+    let students = [
+        {
+            studentID: 1,
+            age: 79,
+            givenNames: ["John", "Federico"],
+            lastName: "Kennedy",
+            isGraduated: false,
+            registeredCourses: ["Cooking 101", "Aesthetic Programming"]
+        },
+        {
+            studentID: 2,
+            age: 666,
+            givenNames: ["Pepita"],
+            lastName: "Golondrina",
+            isGraduated: true,
+            registeredCourses: ["Cooking 101", "Aesthetic Programming", "Pottery"]
+        },
+        {
+            studentID: 235768798,
+            age: 13,
+            givenNames: ["Pablo", "Rodriguez"],
+            lastName: "Escobar",
+            isGraduated: true,
+            registeredCourses: ["Cooking 101", "Aesthetic Programming", "Export/Import"]
+        },
+    ]
+
+    // 1. Create a function that receives a student and “calculate" their firstName.
+
+    function calculateFirstName(student) {
+        // refers to the property "givenNames" which contains either a firstname or a middlename
+        return student.givenNames[0]
+
+        // it returns the first student's (students[0]) first name [givenName[0]] 
+    }
+
+    console.log("Result of point 1")
+    console.log(calculateFirstName(students[0]));
+
+   
+
+    // Create a new function that:
+    // 2A Creates a new array that only contains all the studentIDs
+
+    function allTheStudentsIDs() {
+        return students.map(transformAStudentIntoAnId)
+
+        /* The map method iterates over each element in the students array and applies the 
+        transformAStudentIntoAnId function to each element*/ 
+        
+        /* It creates a new array with the return values from the 
+        transformAStudentIntoAnId function (studentID) applied to each element of the students array */
+    }
+
+    function transformAStudentIntoAnId(aStudent) {
+        return aStudent.studentID 
+
+        // turns the object "astudent" into the property value of studentID **output is a number 
+    }
+
+    console.log("Result of point 2A")
+    console.log(allTheStudentsIDs())
+
+
+    //2.B Creates a new array that only contains all the students that are graduated
+
+    function graduatedStudents() {
+        return students.filter(checkIfStudentIsGraduated)
+       
+        /*The filter method iterates over each element in the students array and applies the 
+        checkIfStudentIsGraduated function to each element*/
+
+        // If isGraduated == true the student object will be included in the new array
+
+    }
+
+    function checkIfStudentIsGraduated(aStudent) {
+        return aStudent.isGraduated == true
+    }
+
+    console.log("Result of point 2B")
+    console.log(graduatedStudents())
+
+    //If we want to see the names of the graduates students we can do another map
+    /* console.log(graduatedStudents().map(transformTheStudentIntoAFirstName))
+
+    function transformTheStudentIntoAFirstName(aStudent) {
+        return calculateFirstName(aStudent)
+    } */
+
+
+    // 2.C Finds out how many students are graduated
+    function howManyStudentsAreGraduated() {
+        return graduatedStudents().length
+
+        /*it returns the length of the array graduatedStudents which corresponds 
+        to the number of students who have graduated*/
+    }
+
+    console.log("Result of point 2C")
+    console.log(howManyStudentsAreGraduated())
+
+    // We will do this next class
+    // 2.D Finds out how many unique courses these students are registered to
+    // 2.E Removes the student with the studentID: 42
+    // 2.F Calculates the average age of these students
+
+</script>
+
+</html>
