@@ -1,0 +1,88 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    .egg {
+        background-color: pink;
+        border-radius: 100px;
+        height: 160px;
+        width: 135px;
+    }
+
+    .screen {
+        position: absolute;
+        background-color: snow;
+        border-radius: 20px;
+        height: 80px;
+        width: 90px;
+        top: 45px;
+        left: 30px;
+    }
+
+    button {
+        position: absolute;
+        border-radius: 100px;
+        height: 18px;
+        width: 18px;
+        border-color: palevioletred;
+
+    }
+
+    .buttonContainer {
+        position: absolute;
+        top: 130px;
+        left: 40px;
+        z-index: 1;
+    }
+
+    .figur {
+        position: absolute;
+        width: 60px;
+        top: 15px;
+        left: 15px;
+    }
+
+    .headerText {
+        position: absolute;
+        width: 70px;
+        top: 20px;
+        left: 40px;
+    }
+
+</style>
+
+<body>
+
+    <div class="egg">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Tamagotchi.webp/604px-Tamagotchi.webp.png"
+            alt="" class="headerText">
+        <div class="screen">
+            <img id="figurID" class="figur" src="figur0.png" alt="">
+        </div>
+        <div class="buttonContainer">
+            <button style="left: 0px" onclick="changeImg(0), countClicks(1)"></button>
+            <button style="left: 25px; top:3px" onclick="changeImg(1), countClicks(1)"></button>
+            <button style="left: 50px" onclick="changeImg(2), countClicks(1)"></button>
+        </div>
+    </div>
+
+</body>
+
+<script>
+
+    // An array of image filepaths
+    let imgArray = ["figur0.png", "figur1.png", "figur2.png"];
+
+    // Callback function that updates the image source in the html 
+    function changeImg(index) {
+        const img = document.getElementById("figurID");
+        img.setAttribute("src", imgArray[index]);
+    }
+</script>
+
+</html>
