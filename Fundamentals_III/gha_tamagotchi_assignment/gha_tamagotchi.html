@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamagotchi</title>
+</head>
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            line-height: 0;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        #content-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        #tamagotchi-container {
+            width: 135px;
+            height: 160px;
+            background-color: pink;
+            border-radius: 100px;
+            position: relative;
+            padding-top: 12px;
+            padding-bottom: 14px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        #tamagotchi-screen-container {
+            background-color: snow;
+            border-radius: 20px;
+            height: 80px;
+            width: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #button-container {
+            display: flex;
+            align-items: center;;
+            flex-grow: 1;
+            gap: 6px;
+        }
+
+        #food-select-btn {
+            align-self: flex-end;
+        }
+
+        .button-class {
+            border-color: palevioletred;
+            border-radius: 50%;
+            height: 16px;
+            width: 16px;
+        }
+
+        #tamagotchi-header {
+            width: 70px;
+        }
+
+        #tamagotchi-avatar {
+            width: 70px;
+        }
+
+    </style>
+    <div id="content-container">
+        <div id="tamagotchi-container">
+            <div id="tamagotchi-header-container">
+                <img id="tamagotchi-header" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Tamagotchi.webp/604px-Tamagotchi.webp.png">
+            </div>
+            <div id="tamagotchi-screen-container">
+                <img id="tamagotchi-avatar" src="tamagotchi_images/tama_default.png" alt="">
+            </div>
+            <div id="button-container">
+                <button id="feed-btn" class="button-class"></button>
+                <button id="food-select-btn" class="button-class"></button>
+                <button id="play-btn" class="button-class"></button>
+            </div>
+        </div>
+    </div>
+    <!-- Storing the object/model seperately -->
+    <script src="tamagotchi_model.js"></script>
+    <!-- Attaching event listeners, connecting the view with the model -->
+    <script>
+        const foodItems = ['apple', 'cookie', 'sandwich'];
+        let selectedFoodItemIndex = 0;
+
+        foodSelectBtn = document.getElementById('food-select-btn');
+        foodSelectBtn.addEventListener('click', updateSelectedFoodItem)
+
+        feedBtn = document.getElementById('feed-btn');
+        feedBtn.addEventListener('click', () => {
+            badtzMaru.eatFood(foodItems[selectedFoodItemIndex])
+        })
+
+        playBtn = document.getElementById('play-btn');
+        playBtn.addEventListener('click', () => {
+            badtzMaru.play()
+        })
+
+        function updateSelectedFoodItem() {
+            selectedFoodItemIndex += 1;
+            selectedFoodItemIndex = selectedFoodItemIndex % foodItems.length;
+            console.log(`Current selected food is now: ${foodItems[selectedFoodItemIndex]}`)
+        }
+    </script>
+</body>
+</html>
